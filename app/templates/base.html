@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TimeFocus</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="taskbar">
+        <a href="{{ url_for('main.home') }}" class="taskbar-btn">🏠 Home</a>
+        <a href="{{ url_for('main.focus_timer') }}" class="taskbar-btn">🎯 Focus Timer</a>
+        <a href="{{ url_for('main.task_manager') }}" class="taskbar-btn">📋 Task Manager</a>
+    </nav>
+
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

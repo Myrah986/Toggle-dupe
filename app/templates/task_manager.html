@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block title %}Task Manager - TimeFocus{% endblock %}
+
+{% block content %}
+<div class="task-manager-container">
+    <h1>Task Manager</h1>
+
+    <!-- Start Timer Form -->
+    <form method="POST" action="{{ url_for('main.start_timer') }}">
+        <input type="text" name="project" placeholder="Project name" required>
+        <input type="text" name="description" placeholder="Description" required>
+        <button type="submit" class="btn-start">Start Timer</button>
+    </form>
+
+    <!-- Active Timers -->
+    <div class="active-timers-section">
+        <h2>Active Timers</h2>
+        <ul class="active-timers">
+            {% for entry in active_entries %}
+            <li class="timer-item">
+                <span class="timer-info">
+                    {{ entry.project.name }} - {{ entry.description }}
+                </span>
+                <div class="task-actions">
+                    <a href="{{ url_for('main.stop_timer', entry_id=entry.id) }}" class="btn-stop">⏹ Stop</a>
+                    <form action="{{ url_for('main.delete_entry', entry_id=entry.id) }}" method="POST" class="delete-form">
+                        <button type="submit" class="btn-delete">🗑️ Delete</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Time Logs -->
+    <div class="time-logs-section">
+        <h2>Time Logs</h2>
+        <table class="time-logs">
+            <thead>
+                <tr>
+                    <th>Project</th>
+                    <th>Description</th>
+                    <th>Duration</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>
+                        {% if entry.project %}
+                            {{ entry.project.name }}
+                        {% else %}
+                            <span class="no-project-warning">No project! (ID: {{ entry.project_id }})</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ entry.description }}</td>
+                    <td class="duration">
+                        {% if entry.end_time %}
+                            {{ (entry.end_time - entry.start_time).seconds // 3600 }}h
+                            {{ ((entry.end_time - entry.start_time).seconds % 3600) // 60 }}m
+                            {{ ((entry.end_time - entry.start_time).seconds % 60) }}s
+                        {% else %}
+                            <span class="running-status">(Running)</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form action="{{ url_for('main.delete_entry', entry_id=entry.id) }}" method="POST">
+                            <button type="submit" class="btn-delete-small">🗑️</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

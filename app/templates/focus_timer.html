@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Focus Timer - TimeFocus{% endblock %}
+
+{% block content %}
+
+<div class="focus-timer-container">
+    <div class="timer-display-wrapper">
+        <div class="timer-display" id="focus-timer">25:00</div>
+        <div class="timer-label">Focus Time Remaining ✨</div>
+    </div>
+    
+    <div class="timer-controls">
+        <button class="btn-start" id="startBtn">🍓 Start</button>
+        <button class="btn-pause" id="pauseBtn" disabled>🍰 Pause</button>
+        <button class="btn-reset" id="resetBtn" disabled>🦄 Reset</button>
+    </div>
+    
+    <div class="timer-decoration">
+        <div class="decoration-circle circle-1"></div>
+        <div class="decoration-circle circle-2"></div>
+        <div class="decoration-circle circle-3"></div>
+    </div>
+</div>
+{% endblock %}

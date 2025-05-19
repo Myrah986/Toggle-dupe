@@ -1,0 +1,416 @@
+
+  
+  
+ 
+  h1, h2 {
+    color: #ff8fab;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  /* Container */
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Forms */
+  
+  form {
+    background-color: var(--pastel-mint);
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px;
+    border: 2px solid var(--pastel-lavender);
+    border-radius: 50px;
+    background-color: white;
+    font-size: 16px;
+  }
+  
+  button, .btn {
+    background-color: #ff8fab;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  button:hover {
+    background-color: #ff7096;
+    transform: translateY(-2px);
+  }
+  
+  /* Timer Lists */
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    background-color: var(--pastel-peach);
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+  }
+  
+  li:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Tables */
+  
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-top: 20px;
+  }
+  
+  th {
+    background-color: var(--pastel-lavender);
+    color: var(--text-dark);
+    padding: 12px;
+    text-align: left;
+  }
+  
+  td {
+    background-color: white;
+    padding: 12px;
+    border-radius: 5px;
+  }
+  
+  tr:nth-child(even) td {
+    background-color: var(--pastel-yellow);
+  }
+  
+  /* Active Timer Highlight */
+  
+  .active-timer {
+    background-color: var(--pastel-blue);
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 143, 171, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 143, 171, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 143, 171, 0); }
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+    
+    
+  }
+  
+  /* Stop Button */
+  
+  .stop-btn {
+    background-color: #ff8fab;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+  
+  .stop-btn:hover {
+    background-color: #ff477e;
+  }
+  
+  /* Responsive */
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 15px;
+    }
+    
+    form {
+      flex-direction: column;
+    }
+  }
+  
+
+  /* Font & Color Upgrade */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;500;700&family=Fredoka+One&display=swap');
+
+:root {
+  --pastel-pink: #ffd6e0;
+  --pastel-mint: #c1f7dc;
+  --pastel-lavender: #e2d1f9;
+  --pastel-peach: #ffdfd3;
+  --pastel-blue: #d4f1f9;
+}
+
+body {
+  font-family: 'Georgia', cursive;
+  background: linear-gradient(-45deg, #ffd6e0, #c1f7dc, #e2d1f9);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Focus Timer Container */
+.focus-timer {
+  background: rgba(122, 69, 69, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+.timer-display {
+  font-family: 'Fredoka One', cursive;
+  font-size: 5rem;
+  color: rgb(255, 248, 248);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  margin: 20px 0;
+}
+
+/* Background Themes */
+.theme-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+.theme-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.2);
+}
+
+/* Predefined Themes */
+.theme-1 { background: linear-gradient(45deg, #FF9A8B, #FF6B95, #FF8E53); }
+.theme-2 { background: linear-gradient(45deg, #84FAB0, #8FD3F4, #A6C1EE); }
+.theme-3 { background: linear-gradient(45deg, #E0C3FC, #8EC5FC, #FBC7D4); }
+
+/* Delete Buttons */
+.btn-delete {
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 8px;
+    transition: all 0.3s;
+  }
+  
+  .btn-delete:hover {
+    background-color: #ff4757;
+    transform: scale(1.05);
+  }
+  
+  .btn-delete-small {
+    background: none;
+    border: none;
+    color: #ff6b6b;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+  }
+  
+  .task-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  /* Make forms inline */
+  .delete-form {
+    display: inline;
+  }
+/* Homepage Styles */
+.hero {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+/* Taskbar as Navigation */
+.taskbar {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  margin: 20px auto;
+  width: max-content;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid #ffffff;
+}
+
+.taskbar-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 50px;
+  background: var(--pastel-lavender);
+  color: #5a5a5a;
+  font-family: 'Comfortaa', cursive;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.taskbar-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.taskbar-btn.active {
+  background: var(--pastel-mint);
+  transform: scale(1.05);
+}
+
+/* Content Sections */
+/* Ensure proper section containment */
+.content-section {
+  display: none; /* Hidden by default */
+  width: 100%;
+}
+
+/* Override for active section */
+.content-section.active-section, .content-section[style*="display: block"] {
+  display: block !important;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Fix for potential floating elements */
+#task-manager-section > * {
+  clear: both;
+}
+/* Task Manager Specific Styles */
+.task-manager-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.active-timers-section, .time-logs-section {
+  margin-top: 30px;
+}
+
+.timer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 5px 0;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 5px;
+}
+
+.no-project-warning {
+  color: #ff6b6b;
+  font-size: 0.9em;
+}
+
+.running-status {
+  color: #4CAF50;
+  font-weight: bold;
+}
+
+.focus-timer-container {
+  background: rgba(201, 221, 236, 0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 30px;
+  padding: 40px;
+  max-width: 500px;
+  margin: 20px auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3);
+  border: 2px solid white;
+}
+
+.decoration-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.circle-1 {
+  width: 150px;
+  height: 150px;
+  background: #ff9a9e;
+  top: -50px;
+  left: -50px;
+}
+
+.circle-2 {
+  width: 200px;
+  height: 200px;
+  background: #a1c4fd;
+  bottom: -80px;
+  right: -30px;
+}
+
+.circle-3 {
+  width: 100px;
+  height: 100px;
+  background: #ffecd2;
+  top: 50%;
+  right: 20%;
+}
+
+@keyframes celebrate {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}

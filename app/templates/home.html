@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to TimeFocus ⏱️</h1>
+    <p>A cute productivity tracker with:</p>
+    <ul class="features">
+        <li>🌸 Pomodoro focus timer</li>
+        <li>📝 Task management</li>
+        <li>🎨 Pastel themes</li>
+    </ul>
+    <div class="cta-buttons">
+        <a href="{{ url_for('main.focus_timer') }}" class="btn-pastel-blue">Start Focusing</a>
+        <a href="{{ url_for('main.task_manager') }}" class="btn-pastel-lavender">View Tasks</a>
+    </div>
+</div>
+{% endblock %}
